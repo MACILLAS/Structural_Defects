@@ -38,3 +38,4 @@ Directories
 
 See structuraldamage.yaml for class definitions.
 
+Test
