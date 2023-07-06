@@ -37,5 +37,3 @@ Directories
 ./datasets/labels/train/datasource_0.txt
 
 See structuraldamage.yaml for class definitions.
-
-Test
