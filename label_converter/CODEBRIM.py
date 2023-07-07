@@ -25,14 +25,14 @@ for file in files:
 
             xmin, ymin, xmax, ymax = int(obj.bndbox.xmin.string), int(obj.bndbox.ymin.string), int(obj.bndbox.xmax.string), int(obj.bndbox.ymax.string)
             width, height = int(xmax - xmin), int(ymax - ymin)
-            x_centre, y_centre = xmin + width, ymin + height
+            x_centre, y_centre = xmin + width/2, ymin + height/2
 
             # Convert to Percentile
             x_centre, y_centre, width, height = x_centre/w, y_centre/h, width/w, height/h
 
-            crack, spalling, efflorescence = bool(obj.Defect.Crack.string), bool(obj.Defect.Spallation.string), bool(obj.Defect.Efflorescence.string)
+            crack, spalling, efflorescence = bool(int(obj.Defect.Crack.string)), bool(int(obj.Defect.Spallation.string)), bool(int(obj.Defect.Efflorescence.string))
 
-            if bool(obj.Defect.ExposedBars.string) or bool(obj.Defect.CorrosionStain.string):
+            if bool(obj.Defect.ExposedBars.int) or bool(int(obj.Defect.CorrosionStain.string)):
                 corrosion = True
 
             # Write in outfile

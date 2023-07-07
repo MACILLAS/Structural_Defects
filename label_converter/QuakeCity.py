@@ -65,16 +65,16 @@ def remove_small_boxes(bboxes, min_size = 50):
             temp.remove(bbox)
     return temp
 
-def write_outfile(bboxes, classification, outfile):
+def write_outfile(bboxes, classification, outfile, w, h):
     for bbox in bboxes:
         xmin, ymin, xmax, ymax = bbox[0], bbox[1], bbox[2], bbox[3]
         width, height = int(xmax - xmin), int(ymax - ymin)
-        x_centre, y_centre = xmin + width, ymin + height
+        x_centre, y_centre = xmin + (width/2), ymin + (height/2)
 
         # Convert to Percentile
         x_centre, y_centre, width, height = x_centre / w, y_centre / h, width / w, height / h
 
-        outfile.write(str(classification)+ " " + str(x_centre) + " " + str(y_centre) + " " + str(width) + " " + str(height) + "\n")
+        outfile.write(str(classification) + " " + str(x_centre) + " " + str(y_centre) + " " + str(width) + " " + str(height) + "\n")
 
 
 if __name__ == "__main__":
@@ -117,9 +117,9 @@ if __name__ == "__main__":
         spall_bboxes = remove_small_boxes(spall_bboxes)
 
         """ Write to File """
-        write_outfile(crack_bboxes, 0, outfile)
-        write_outfile(rebar_bboxes, 2, outfile)
-        write_outfile(spall_bboxes, 1, outfile)
+        write_outfile(crack_bboxes, 0, outfile, w, h)
+        write_outfile(rebar_bboxes, 2, outfile, w, h)
+        write_outfile(spall_bboxes, 1, outfile, w, h)
 
         """
         for bbox in crack_bboxes:
