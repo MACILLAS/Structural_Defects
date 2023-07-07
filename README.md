@@ -37,3 +37,20 @@ Directories
 ./datasets/labels/train/datasource_0.txt
 
 See structuraldamage.yaml for class definitions.
+
+Due to incosistencies in the Zhang Dataset (i.e., rebar class should be 'spalling' with rebar labelled) authors relabelled
+the relavant sections on Roboflow. 
+
+You can find these datasets on Roboflow Universe at:
+
+### CODEBRIM Bounding Box:
+https://universe.roboflow.com/cvisslab/codebrim-poidd/dataset/2155
+
+### Zhang Bounding Box:
+https://universe.roboflow.com/cvisslab/zhang-3seb8/dataset/1
+
+### QuakeCity Bounding Box:
+https://universe.roboflow.com/cvisslab/quakecity/dataset/1
+
+### S2DS
+https://universe.roboflow.com/cvisslab/s2ds/dataset/1
