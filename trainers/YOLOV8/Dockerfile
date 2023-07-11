@@ -22,4 +22,7 @@ RUN mkdir /projects/datasets
 RUN pip install ultralytics==8.0.20
 RUN pip install roboflow
 
-COPY ./CODEBRIM_baseline.py /projects/
+RUN apt install -y vim
+
+COPY ./*.py /projects/
+ADD ./results /projects/results
