@@ -178,11 +178,12 @@ yolo task=detect mode=train model=yolov8s.pt data=./datasets/CODEBRIM-2155/data.
 * QuakeCity_baseline (model=yolov8n.pt) (train 3)
 
 ```
-                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████
-                   all        289        664      0.723      0.718      0.732      0.502
-       corrosion-rebar        289        255       0.61      0.626      0.593      0.304
-                 crack        289        195      0.739      0.672      0.721      0.477
-              spalling        289        214      0.821      0.854      0.881      0.724
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 49/4
+                   all        962      76803      0.488      0.359      0.364      0.248
+       corrosion-rebar        962        848      0.451       0.12      0.167     0.0806
+                 crack        962      49759       0.47      0.331      0.336      0.217
+              spalling        962      26196      0.543      0.626       0.59      0.446
+
 ```
 
 * QuakeCity_baseline (model=yolov8m.pt) (train 9)
@@ -377,5 +378,56 @@ yolo task=detect mode=val model=./results/QuakeCity_baseline/detect/trainn/weigh
          efflorescence        122        165          0          0          0          0
               spalling        122        216       0.43      0.208      0.205       0.13
     ```
-
-    
+* S2DS (train) ==> QuakeCity (test)
+    * train_n
+    ```
+                     Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 61/61 [00:08<00:00,  
+                   all        962      76803     0.0165      0.034     0.0106    0.00456
+       corrosion-rebar        962        848   8.18e-05     0.0142   4.17e-05   1.14e-05
+                 crack        962      49759     0.0261     0.0154     0.0182    0.00878
+              spalling        962      26196     0.0234     0.0725     0.0134     0.0049
+    ```
+    * train_m 
+    ```
+                     Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 61/61 [00:17<00:00,  3.43it/s]
+                   all        962      76803     0.0193     0.0366     0.0133    0.00535
+       corrosion-rebar        962        848   0.000187     0.0283   0.000101   3.41e-05
+                 crack        962      49759     0.0424     0.0115     0.0263    0.00997
+              spalling        962      26196     0.0152       0.07     0.0136    0.00606
+    ```
+    * train_x
+    ```
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 61/61 [00:36<00:00,  1.65it/s]
+                   all        962      76803     0.0217     0.0411     0.0129    0.00469
+       corrosion-rebar        962        848   0.000162     0.0248   8.36e-05   2.37e-05
+                 crack        962      49759     0.0463      0.019     0.0272    0.00993
+              spalling        962      26196     0.0186     0.0796     0.0113    0.00411
+    ```
+* QuakeCity (train) ==> S2DS (test)
+    * train_n
+    ```
+                     Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 8/8 [00:01<00:00,  4.62it/s]
+                   all        122        892      0.297      0.024    0.00647    0.00224
+       corrosion-rebar        122        320          1          0          0          0
+                 crack        122        191      0.103     0.0681     0.0195    0.00669
+         efflorescence        122        165          0          0          0          0
+              spalling        122        216     0.0836     0.0278    0.00634    0.00228
+    ```
+    * train_m
+    ```
+                     Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 8/8 [00:02<00:00,  2.73it/s]
+                   all        122        892      0.348     0.0347     0.0155    0.00588
+       corrosion-rebar        122        320          1          0          0          0
+                 crack        122        191       0.23      0.105     0.0433     0.0154
+         efflorescence        122        165          0          0          0          0
+              spalling        122        216      0.163     0.0342     0.0186    0.00811
+    ```
+    * train_x
+    ```
+                     Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 8/8 [00:05<00:00,  1.42it/s]
+                   all        122        892       0.37     0.0271      0.015    0.00703
+       corrosion-rebar        122        320          1          0          0          0
+                 crack        122        191      0.221     0.0576     0.0295     0.0132
+         efflorescence        122        165          0          0          0          0
+              spalling        122        216      0.258     0.0509     0.0303     0.0149
+    ```
